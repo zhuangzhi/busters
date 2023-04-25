@@ -192,3 +192,10 @@ func (p Predicate[T]) Or(next func(T) (bool, error)) Predicate[T] {
 		return next(t)
 	}
 }
+
+type Result[T any] struct {
+	Value T
+	Error error
+}
+
+type OnResult[T any] Consumer[Result[T]]

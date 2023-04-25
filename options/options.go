@@ -168,12 +168,14 @@ type TLSOption[T any] struct {
 	Option[T]
 	CertFile string
 	KeyFile  string
+	CaFile   string
 	IsTls    bool
 }
 
-func (opt *TLSOption[T]) WithTLS(certFile, keyFile string) *T {
+func (opt *TLSOption[T]) WithTLS(certFile, keyFile, caFile string) *T {
 	opt.CertFile = certFile
 	opt.KeyFile = keyFile
+	opt.CaFile = caFile
 	opt.IsTls = true
 	return opt.T
 }

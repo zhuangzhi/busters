@@ -58,7 +58,7 @@ func Test(t *testing.T) {
 		WithContext(context.Background()).
 		WithKeepAlive(time.Second).
 		WithPoolSize(1).
-		WithTLS("", "").
+		WithTLS("cert.pem", "key.pem", "ca.pem").
 		WithOnError(func(err error) {
 			t.Log(err)
 		}).
