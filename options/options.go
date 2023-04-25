@@ -1,4 +1,4 @@
-package option
+package options
 
 /*
 Option[T] is a generic type, it can be used to create a new type with a generic field.
@@ -70,6 +70,12 @@ func (opt *KeepAliveOption[T]) WithKeepAlive(keepAlive time.Duration) *T {
 type BufferOption[T any] struct {
 	Option[T]
 	BufferSize int
+}
+
+// WithBuffer ... Set Buffer option
+func (opt *BufferOption[T]) WithBuffer(bufferSize int) *T {
+	opt.BufferSize = bufferSize
+	return opt.T
 }
 
 // PriorityOption ... Priority option
